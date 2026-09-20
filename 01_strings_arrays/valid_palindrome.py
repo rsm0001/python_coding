@@ -7,6 +7,7 @@ def get_char(s, i):
         return s[i].lower()
     return None
 
+# Faulty. e.g., fails for "A "
 def is_palindrome(s):
     l, r = 0, (len(s) - 1)
     while (l < r):
@@ -22,6 +23,23 @@ def is_palindrome(s):
             return False
         l += 1
         r -= 1
+    return True
+
+# ============================================
+
+# clean solution
+def is_palindrome(s):
+    l, r = 0, (len(s) - 1)
+    while (l < r):
+        if (not s[l].isalnum()):
+            l += 1
+        elif (not s[r].isalnum()):
+            r -= 1
+        elif (s[l].lower() != s[r].lower()):
+            return False
+        else:
+            l += 1
+            r -= 1
     return True
 
 # ============================================
